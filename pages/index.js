@@ -3,7 +3,7 @@ import Batman from "./batman";
 
 const Index = props => (
   <Layout>
-    <p>Home Page</p>
+    <p>Landing Page</p>
   </Layout>
 );
 

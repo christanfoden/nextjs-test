@@ -3,6 +3,8 @@ import { withRedux } from "../redux/redux";
 import { useSelector, useDispatch } from "react-redux";
 import { db } from "../firebase/index";
 
+import Layout from "../components/Layout";
+
 const Home = () => {
   const data = useSelector(state => state.testReducer.test);
   const dispatch = useDispatch();
@@ -16,9 +18,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      Hello Redux World<button onClick={addTestNumber}>Add</button>
-    </div>
+    <Layout>
+      <p>This Page is using redux nicely</p>
+      <button onClick={addTestNumber}>Add</button>
+    </Layout>
   );
 };
 
