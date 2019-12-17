@@ -93,6 +93,50 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./firebase/index.js":
+/*!***************************!*\
+  !*** ./firebase/index.js ***!
+  \***************************/
+/*! exports provided: auth, db, firebase */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return auth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "db", function() { return db; });
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "firebase/app");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (default from non-harmony) */ __webpack_require__.d(__webpack_exports__, "firebase", function() { return firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a; });
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/database */ "firebase/database");
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_database__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/auth */ "firebase/auth");
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase_auth__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/storage */ "firebase/storage");
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(firebase_storage__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+let config = {
+  apiKey: "AIzaSyB-ni_lz9nnZq6ap9qoP-X25G95HldFJhU",
+  authDomain: "icon-dev-413c0.firebaseapp.com",
+  databaseURL: "https://icon-dev-413c0.firebaseio.com",
+  projectId: "icon-dev-413c0",
+  storageBucket: "icon-dev-413c0.appspot.com",
+  messagingSenderId: "77958001619"
+};
+
+if (!firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.apps.length) {
+  firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.initializeApp(config);
+}
+
+const db = firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.database();
+console.log("Running ...");
+const auth = firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.auth();
+
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/assign.js ***!
@@ -716,9 +760,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../redux/redux */ "./redux/redux.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _firebase_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../firebase/index */ "./firebase/index.js");
 var _jsxFileName = "/Volumes/Foden/Apps/next-test/pages/home.js";
-
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
 
 
@@ -734,18 +780,20 @@ const Home = () => {
     });
   };
 
-  console.log(data);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    _firebase_index__WEBPACK_IMPORTED_MODULE_3__["db"].ref("users").once("value", snap => console.log(snap.val()));
+  }, []);
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 19
     },
     __self: undefined
   }, "Hello Redux World", __jsx("button", {
     onClick: addTestNumber,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 20
     },
     __self: undefined
   }, "Add"));
@@ -1084,6 +1132,50 @@ module.exports = require("core-js/library/fn/object/keys");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/promise");
+
+/***/ }),
+
+/***/ "firebase/app":
+/*!*******************************!*\
+  !*** external "firebase/app" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/app");
+
+/***/ }),
+
+/***/ "firebase/auth":
+/*!********************************!*\
+  !*** external "firebase/auth" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/auth");
+
+/***/ }),
+
+/***/ "firebase/database":
+/*!************************************!*\
+  !*** external "firebase/database" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/database");
+
+/***/ }),
+
+/***/ "firebase/storage":
+/*!***********************************!*\
+  !*** external "firebase/storage" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/storage");
 
 /***/ }),
 

@@ -1,0 +1,21 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "insights": {
+      ".indexOn": "time",
+      ".read": "true"
+    },
+    "posts": {
+      ".indexOn": "time"
+    },
+    "legalRegister": {
+      ".indexOn": "time"
+    },
+    "config": {
+      "primaries": {
+        ".read": true
+      }
+    }
+  }
+}

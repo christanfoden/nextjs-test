@@ -1,5 +1,7 @@
+import React, { useEffect } from "react";
 import { withRedux } from "../redux/redux";
 import { useSelector, useDispatch } from "react-redux";
+import { db } from "../firebase/index";
 
 const Home = () => {
   const data = useSelector(state => state.testReducer.test);
@@ -9,7 +11,9 @@ const Home = () => {
     dispatch({ type: "TEST", payload: +5 });
   };
 
-  console.log(data);
+  useEffect(() => {
+    db.ref("users").once("value", snap => console.log(snap.val()));
+  }, []);
 
   return (
     <div>
